@@ -1,56 +1,97 @@
-# GWC Talking Data Analysis  | [![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
+# Talking Data Analysis | [![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 
-send your beautiful drawing to any phone number of your choice, along with a customized message or just download and keep it for yourself!
-> inspired by a desire to prank my friends with fun drawings
+A data analysis project analyzing romance movies from the Rotten Tomatoes dataset, comparing favorite movies against genre statistics and visualizing trends.
 
-## features
-- sketchpad where you can draw with any color and any size brush
-- phone number and message inputs
-- sms/mms api to send the images/msgs
-- download feature to save your precious images
+## Overview
 
-## usage
-1. draw a fun picture
-2. type in a phone number and message
-3. click send or download it for yourself
-4. wait for your friends to see!
+This project analyzes movie ratings data to understand how a favorite romance movie compares against other films in the same genre using statistical measures and data visualizations.
 
-## installation  
-- there are two versions, this one uses imgbb to upload the image and vonage to send the message, but you can also check out the other one [here](https://github.com/sophia0805/sturdy-waffle/tree/cdn-clicksend)
+## Features
+
+- **Data Loading**: Reads and processes Rotten Tomatoes movie dataset
+- **Genre Filtering**: Filters movies by genre (Romance)
+- **Statistical Analysis**: Calculates min, max, mean, and median ratings
+- **Data Visualizations**: 
+  - Histogram showing distribution of audience ratings
+  - Scatter plot comparing audience vs critic ratings
+- **Interactive Graphs**: Matplotlib visualizations with proper labels and grids
+
+## Installation
+
+### Prerequisites
+- Python 3.x
+- Required packages:
+  - pandas
+  - matplotlib
+
+### Setup
+
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sophia0805/drawmail
-   cd drawmail
+   git clone <your-repo-url>
+   cd GWC
    ```
 
 2. **Install dependencies**
    ```bash
-   npm install
+   pip install pandas matplotlib
    ```
 
-3. **Create a .env**
-    ```.env
-    IMGBBKEY=""
-    VONAGE_API_KEY=""
-    VONAGE_API_SECRET=""
-    VONAGE_FROM_NUMBER=""
-    ```
+3. **Download the dataset**
+   - Ensure `rotten_tomatoes_movies.csv` is in the same directory as the script
+   - The dataset should be available or downloaded separately
 
-3. **Run the development server**
+4. **Run the program**
    ```bash
-   npm run dev
+   python "Talking Data Starter Code.py"
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+## Usage
 
-## history
-- okay so originally i tried to use twilio, which didn't work very well because they could only send to verified numbers and i wanted to prank my friends
-- then, i switched to clicksend, which kept disabling my accounts because i wasn't a business, but also only took png URLs when i had the raw data
-- this lead me to attempt to use hack club cdn's api, which required ngrok, so i set it all up with clicksend and it worked!! unfortunately, i couldn't figure out a way to deploy the ngrok local server with vercel, so i changed the entire idea
-- i gave up with clicksend, switching instead to telynx which had the same issue as twilio, despite having better pricing
-- while attempting to use telynx, i figured out a way to use imgbb as an image uploader instead of cdn, so i could host it on vercel
-- finally, i switched to vonage, which despite a $2 trial limit, works well so far yay
+1. The program will load the Rotten Tomatoes movie dataset
+2. It will analyze romance movies and display statistics about audience ratings
+3. Follow the on-screen prompts to view data visualizations
+4. Close each graph window to proceed to the next visualization
 
-### finished project:
-![](https://hc-cdn.hel1.your-objectstorage.com/s/v3/327dd817897d301a541fce4386a6839b010f5b69_image.png) 
+## Building an Executable
+
+To create a standalone executable for Windows:
+
+1. **Install PyInstaller** (if not already installed)
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. **Build the executable**
+   ```bash
+   python -m PyInstaller --onefile --name "TalkingDataAnalysis" "Talking Data Starter Code.py"
+   ```
+
+   The executable will be created in the `dist` folder.
+
+## Analysis Details
+
+The program analyzes:
+- **Minimum/Maximum ratings** in the romance genre
+- **Mean and median** ratings for comparison
+- **Visual distribution** of ratings via histogram
+- **Correlation** between audience and critic ratings
+
+## Data Source
+
+- Rotten Tomatoes Movies Dataset
+- Contains movie titles, genres, audience ratings, and critic ratings
+
+## Technologies Used
+
+- Python
+- pandas (DataFrame manipulation)
+- matplotlib (Visualizations)
+
+## Author
+
+Girls Who Code Project
+
+## License
+
+This project is part of a Girls Who Code educational program.
