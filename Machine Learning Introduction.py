@@ -1,5 +1,17 @@
 import pandas as pd
 import GWCutilities as util
+import sys
+import os
+
+# Handle bundled data file path for PyInstaller
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 pd.set_option('display.max_columns', None)
 pd.set_option('max_colwidth', None)
@@ -7,7 +19,7 @@ pd.set_option('max_colwidth', None)
 print("\n-----\n")
 
 #Create a variable to read the dataset
-df = pd.read_csv("heartDisease_2020_sampling.csv")
+df = pd.read_csv(resource_path("heartDisease_2020_sampling.csv"))
 
 print(
     "We will be performing data analysis on this Indicators of Heart Disease Dataset. Here is a sample of it: \n"
